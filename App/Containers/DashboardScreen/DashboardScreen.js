@@ -1,16 +1,10 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  SafeAreaView,
-  ImageBackground,
-  Platform,
-} from 'react-native';
+import {Text, SafeAreaView} from 'react-native';
 import glamorous from 'glamorous-native';
 import PieChart from '../../Components/Charts';
 import LinearGradient from 'react-native-linear-gradient';
 
-const DashboardScreen: React.FC<{}> = () => {
+const DashboardScreen = () => {
   return (
     <LinearGradient
       start={{x: 0, y: 1}}

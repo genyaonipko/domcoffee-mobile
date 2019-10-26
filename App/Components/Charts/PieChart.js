@@ -1,30 +1,17 @@
 import * as scale from 'd3-scale';
 import * as shape from 'd3-shape';
 import * as React from 'react';
-import { StyleSheet, View, ViewProps } from 'react-native';
-import Svg, { Defs, G, LinearGradient, Path, Stop } from 'react-native-svg';
+import {StyleSheet, View} from 'react-native';
+import Svg, {Defs, G, LinearGradient, Path, Stop} from 'react-native-svg';
 
 const d3 = {
   scale,
   shape,
 };
 
-export interface Item {
-  value?: number;
-  gradientStart?: string;
-  gradientEnd?: string;
-}
+const getValue = item => item.value;
 
-const getValue = (item: Item) => item.value;
-
-export interface Props extends ViewProps {
-  distribution: Item[];
-  width: number;
-  height: number;
-  weight: number;
-}
-
-export default class PieChart extends React.PureComponent<Props, {}> {
+export default class PieChart extends React.PureComponent {
   render() {
     const arcs = d3.shape
       .pie()
@@ -41,7 +28,7 @@ export default class PieChart extends React.PureComponent<Props, {}> {
       ),
     );
     return (
-      <View style={{ width: this.props.width, height: this.props.height }}>
+      <View style={{width: this.props.width, height: this.props.height}}>
         <Svg width={this.props.width} height={this.props.height}>
           <Defs>
             {paths.map((_, index) => (
@@ -51,10 +38,17 @@ export default class PieChart extends React.PureComponent<Props, {}> {
                 x1="0"
                 y1="1"
                 x2="1"
-                y2="0"
-              >
-                <Stop offset="0" stopColor={this.props.distribution[index].gradientStart} stopOpacity="1" />
-                <Stop offset="0.5" stopColor={this.props.distribution[index].gradientEnd} stopOpacity="1" />
+                y2="0">
+                <Stop
+                  offset="0"
+                  stopColor={this.props.distribution[index].gradientStart}
+                  stopOpacity="1"
+                />
+                <Stop
+                  offset="0.5"
+                  stopColor={this.props.distribution[index].gradientEnd}
+                  stopOpacity="1"
+                />
               </LinearGradient>
             ))}
           </Defs>
