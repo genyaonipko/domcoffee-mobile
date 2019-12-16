@@ -1,36 +1,28 @@
 import * as Immutable from 'seamless-immutable';
-import {createAction} from '..';
+import {createSelector} from 'reselect';
+import {createActions, createTypes, createReducer} from 'reduxsauce';
 
-export const ActionTypes = {
-  login: '@@auth/login',
-  loginSuccess: '@@auth/loginSuccess',
-  loginFailure: '@@auth/loginFailure',
-  clearLoginFailure: '@@auth/clearLoginFailure',
-  signOut: '@@auth/signOutAction',
-  signOutSuccess: '@@auth/signOutSuccessAction',
-  setLogin: '@@auth/setLogin',
-  setPassword: '@@auth/setPassword',
-};
+const ActionTypes = createTypes(`
+  LOGIN
+  LOGIN_SUCCESS
+  LOGIN_FAILURE
+  SET_LOGIN
+  SET_PASSWORD
+`);
+
 /* ------------- Types and Action Creators ------------- */
-const login = () => createAction(ActionTypes.login, {});
+const {Creators} = createActions(
+  {
+    login: [],
+    loginSuccess: ['user'],
+    loginFailure: ['error'],
+    setLogin: ['email'],
+    setPassword: ['password'],
+  },
+  {},
+);
 
-const loginSuccess = user => createAction(ActionTypes.loginSuccess, {user});
-
-const loginFailure = error => createAction(ActionTypes.loginFailure, {error});
-
-const setLogin = email => createAction(ActionTypes.setLogin, email);
-
-const setPassword = password => createAction(ActionTypes.setPassword, password);
-
-const actions = {
-  setLogin,
-  setPassword,
-  login,
-  loginSuccess,
-  loginFailure,
-};
-
-export const AuthActions = actions;
+export const AuthActions = Creators;
 
 /* ------------- Initial State ------------- */
 export const INITIAL_STATE = Immutable.from({
@@ -38,55 +30,68 @@ export const INITIAL_STATE = Immutable.from({
   password: '',
   user: null,
   error: '',
+  fetching: false,
+  isAuthenticated: false,
 });
 
 /* ------------- Selectors ------------- */
 const selectAuth = state => state.auth;
+const selectAuthError = createSelector(
+  selectAuth,
+  auth => auth.error,
+);
+const selectAuthFetching = createSelector(
+  selectAuth,
+  auth => auth.fetching,
+);
+
+export const AuthSelectors = {
+  selectAuth,
+  selectAuthError,
+  selectAuthFetching,
+};
 
 /* ------------- Hookup Reducers To Types ------------- */
-export const AuthReducer = (state = INITIAL_STATE, action) => {
-  if (!action) {
-    return state;
-  }
-  switch (action.type) {
-    case ActionTypes.setLogin:
-      return state.merge({
-        login: action.payload.toLowerCase(),
-      });
-    case ActionTypes.setPassword:
-      return state.merge({
-        password: action.payload,
-      });
-
-    case ActionTypes.login:
-      return state.merge({
-        fetching: true,
-      });
-
-    case ActionTypes.loginSuccess: {
-      const {user} = action.payload;
-
-      return state.merge({
-        fetching: false,
-        isAuthenticated: true,
-        user,
-      });
-    }
-
-    case ActionTypes.loginFailure:
-      return state.merge({
-        fetching: false,
-        error: action.payload.error,
-        isAuthenticated: false,
-      });
-
-    case ActionTypes.signOutSuccess:
-      return state.merge({
-        ...INITIAL_STATE.asMutable(),
-      });
-
-    default:
-      return state;
-  }
+const login = (state = INITIAL_STATE, action) => {
+  return state.merge({
+    fetching: true,
+  });
 };
-export default AuthReducer;
+
+const loginSuccess = (state = INITIAL_STATE, action) => {
+  return state.merge({
+    fetching: false,
+    isAuthenticated: true,
+    user: action.user,
+  });
+};
+
+const loginFailure = (state = INITIAL_STATE, action) => {
+  return state.merge({
+    fetching: false,
+    error: action.error,
+    isAuthenticated: false,
+  });
+};
+
+const setLogin = (state = INITIAL_STATE, action) => {
+  return state.merge({
+    login: action.email.toLowerCase(),
+  });
+};
+
+const setPassword = (state = INITIAL_STATE, action) => {
+  return state.merge({
+    password: action.password,
+  });
+};
+
+export const HANDLERS = {
+  [ActionTypes.LOGIN]: login,
+  [ActionTypes.LOGIN_SUCCESS]: loginSuccess,
+  [ActionTypes.LOGIN_FAILURE]: loginFailure,
+  [ActionTypes.SET_PASSWORD]: setPassword,
+  [ActionTypes.SET_LOGIN]: setLogin,
+}
+
+export default createReducer(INITIAL_STATE, HANDLERS);

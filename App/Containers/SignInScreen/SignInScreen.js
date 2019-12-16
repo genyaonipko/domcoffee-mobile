@@ -13,15 +13,20 @@ import {Button, Input} from 'react-native-elements';
 import glamorous from 'glamorous-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import {bindActionCreators} from 'redux';
-import {AuthActions} from '../../Reducers/AuthReducers/AuthReducer';
+import {
+  AuthActions,
+  AuthSelectors,
+} from '../../Reducers/AuthReducers/AuthReducer';
 import {loginUser} from '../../Reducers/AuthReducers/AuthAsyncActions';
+import SnackBar from '../../Components/SnackBar';
+import {createStructuredSelector} from 'reselect';
+import {Images, Metrics} from '../../Themes';
 
 const SignInScreen = props => {
   return (
-    <ImageBackground
-      style={{flex: 1}}
-      source={{uri: 'https://source.unsplash.com/random'}}>
+    <ImageBackground style={{flex: 1}} source={Images.coffeeImg}>
       <Wrapper>
+        <SnackBar error={props.error} />
         <Container>
           <Circle>
             <Text>
@@ -33,7 +38,9 @@ const SignInScreen = props => {
             containerStyle={{width: 300, marginTop: 20}}
             inputStyle={{paddingLeft: 10}}
             placeholder="email@address.com"
-            leftIcon={<Icon name="email" size={24} color="black" />}
+            leftIcon={
+              <Icon name="email" size={24} color="rgba(255, 255, 255, 0.7)" />
+            }
             onChangeText={props.setLogin}
           />
           <Input
@@ -42,7 +49,13 @@ const SignInScreen = props => {
             inputStyle={{paddingLeft: 10}}
             placeholder="Пароль"
             textContentType="password"
-            leftIcon={<MUIIcon name="onepassword" size={24} color="black" />}
+            leftIcon={
+              <MUIIcon
+                name="onepassword"
+                size={24}
+                color="rgba(255, 255, 255, 0.7)"
+              />
+            }
             onChangeText={props.setPassword}
           />
           <Button
@@ -68,18 +81,22 @@ const Wrapper = glamorous(SafeAreaView)({
 
 const Container = glamorous.view({
   alignItems: 'center',
-  paddingVertical: 50,
-  backgroundColor: '#ffffff',
-  borderRadius: 10,
+  backgroundColor: 'rgb(51, 51, 51)',
+  ...Metrics.customPaddings(50, 0, 50, 0),
+  ...Metrics.withBorderRadius(),
 });
 
 const Circle = glamorous.view({
   width: 50,
   height: 50,
-  borderRadius: 50,
   backgroundColor: '#f44336',
   justifyContent: 'center',
   alignItems: 'center',
+  ...Metrics.withBorderRadius(null, 50),
+});
+
+const mapStateToProps = createStructuredSelector({
+  error: AuthSelectors.selectAuthError,
 });
 
 const mapDispatchToProps = dispatch =>
@@ -93,6 +110,6 @@ const mapDispatchToProps = dispatch =>
   );
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(SignInScreen);

@@ -2,13 +2,13 @@ import React from 'react';
 import {ThemeProvider} from 'react-native-elements';
 import {Provider} from 'react-redux';
 import store from '../Reducers';
-import AppNavigation from '../Navigation/AppNavigation';
+import ReduxNavigation from '../Navigation/ReduxNavigation';
 
 const App = () => {
   return (
     <ThemeProvider>
       <Provider store={store}>
-        <AppNavigation />
+        <ReduxNavigation />
       </Provider>
     </ThemeProvider>
   );

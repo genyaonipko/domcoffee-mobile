@@ -1,10 +1,13 @@
 import React from 'react';
-import {Text, SafeAreaView} from 'react-native';
+import {Text, SafeAreaView, TouchableOpacity} from 'react-native';
 import glamorous from 'glamorous-native';
 import PieChart from '../../Components/Charts';
 import LinearGradient from 'react-native-linear-gradient';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {logOut} from '../../Reducers/AuthReducers/AuthAsyncActions';
 
-const DashboardScreen = () => {
+const DashboardScreen = ({ logOut }) => {
   return (
     <LinearGradient
       start={{x: 0, y: 1}}
@@ -43,6 +46,7 @@ const DashboardScreen = () => {
             quisquam, saepe libero aut consequuntur at ab minus expedita sequi
             earum accusantium!
           </Text>
+          <TouchableOpacity onPress={logOut}><Text>LogOut</Text></TouchableOpacity>
         </InformationContainer>
       </Wrapper>
     </LinearGradient>
@@ -79,4 +83,8 @@ const Circle = glamorous.view({
   alignItems: 'center',
 });
 
-export default DashboardScreen;
+const mapDispatchToProps = dispatch => bindActionCreators({
+  logOut: logOut,
+}, dispatch);
+
+export default connect(null, mapDispatchToProps)(DashboardScreen);

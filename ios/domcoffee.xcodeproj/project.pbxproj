@@ -18,6 +18,7 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* domcoffeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* domcoffeeTests.m */; };
 		5AFD77D42903200018718B18 /* libPods-domcoffee-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CDA79450F9E0F9F3DEA95A /* libPods-domcoffee-tvOSTests.a */; };
+		D893897223A5309C00A3C18F /* domcoffee.png in Resources */ = {isa = PBXBuildFile; fileRef = D893897123A5309C00A3C18F /* domcoffee.png */; };
 		DFF65B908FA992CD5D68374A /* libPods-domcoffee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE007FFA32BE0EC0FB3B865 /* libPods-domcoffee.a */; };
 		E0AF31B46B401F947F7A16A0 /* libPods-domcoffeeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F70F2C5C5489AEE6862AC97A /* libPods-domcoffeeTests.a */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		C101E47C08141BA7E1270C64 /* Pods-domcoffee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-domcoffee.debug.xcconfig"; path = "Target Support Files/Pods-domcoffee/Pods-domcoffee.debug.xcconfig"; sourceTree = "<group>"; };
 		CDE64AD379FA425A992F42C7 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		D86613D7235630BD0065F4C8 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D893897123A5309C00A3C18F /* domcoffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = domcoffee.png; path = ../../domcoffee/client/src/Resources/Images/domcoffee.png; sourceTree = "<group>"; };
 		DB8E957B14E40AA7E339EF10 /* Pods-domcoffeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-domcoffeeTests.debug.xcconfig"; path = "Target Support Files/Pods-domcoffeeTests/Pods-domcoffeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E3701B177F43CF9B46C13D45 /* Pods-domcoffee-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-domcoffee-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-domcoffee-tvOSTests/Pods-domcoffee-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -148,6 +150,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
+				D893897123A5309C00A3C18F /* domcoffee.png */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = domcoffee;
@@ -332,7 +335,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 4R44G8MC83;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 4R44G8MC83;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -380,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				D893897223A5309C00A3C18F /* domcoffee.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -674,6 +682,7 @@
 			baseConfigurationReference = DB8E957B14E40AA7E339EF10 /* Pods-domcoffeeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 4R44G8MC83;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -698,6 +707,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 4R44G8MC83;
 				INFOPLIST_FILE = domcoffeeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -719,6 +729,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 4R44G8MC83;
 				INFOPLIST_FILE = domcoffee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -726,7 +737,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.developer.onipko;
 				PRODUCT_NAME = domcoffee;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -739,6 +750,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4R44G8MC83;
 				INFOPLIST_FILE = domcoffee/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -746,7 +758,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.developer.onipko;
 				PRODUCT_NAME = domcoffee;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
