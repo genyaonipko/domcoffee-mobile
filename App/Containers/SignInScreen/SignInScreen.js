@@ -1,15 +1,15 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {
   View,
   Text,
   SafeAreaView,
   ImageBackground,
-  Platform,
+  Platform, Image,
 } from 'react-native';
 import {connect} from 'react-redux';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import MUIIcon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {Button, Input} from 'react-native-elements';
 import glamorous from 'glamorous-native';
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 import {bindActionCreators} from 'redux';
@@ -21,52 +21,60 @@ import {loginUser} from '../../Reducers/AuthReducers/AuthAsyncActions';
 import SnackBar from '../../Components/SnackBar';
 import {createStructuredSelector} from 'reselect';
 import {Images, Metrics} from '../../Themes';
+import {TextInput, Button} from 'react-native-paper';
 
 const SignInScreen = props => {
+  React.useEffect(() => {
+    props.setLogin('');
+    props.setPassword('');
+  }, []);
   return (
-    <ImageBackground style={{flex: 1}} source={Images.coffeeImg}>
-      <Wrapper>
-        <SnackBar error={props.error} />
-        <Container>
-          <Circle>
-            <Text>
-              <Icon name="lock-outline" size={30} color="#ffffff" />
-            </Text>
-          </Circle>
-          <Input
-            label="Ваш персональный ключ"
-            containerStyle={{width: 300, marginTop: 20}}
-            inputStyle={{paddingLeft: 10}}
-            placeholder="email@address.com"
-            leftIcon={
-              <Icon name="email" size={24} color="rgba(255, 255, 255, 0.7)" />
-            }
-            onChangeText={props.setLogin}
-          />
-          <Input
-            label="Пароль"
-            containerStyle={{width: 300, marginTop: 20}}
-            inputStyle={{paddingLeft: 10}}
-            placeholder="Пароль"
-            textContentType="password"
-            leftIcon={
-              <MUIIcon
-                name="onepassword"
-                size={24}
-                color="rgba(255, 255, 255, 0.7)"
-              />
-            }
-            onChangeText={props.setPassword}
-          />
-          <Button
-            onPress={props.logIn}
-            buttonStyle={{width: 120, marginTop: 20}}
-            title="Далее"
-          />
-        </Container>
-        {Platform.OS === 'ios' ? <KeyboardSpacer topSpacing={-35} /> : null}
-      </Wrapper>
-    </ImageBackground>
+    <Wrapper>
+      <SnackBar error={props.error} />
+      <Image
+        style={{
+          width: Metrics.screenWidth,
+          height: 70,
+          marginTop: Metrics.doubleBaseMargin,
+        }}
+        source={Images.logo}
+      />
+      <Container>
+        <TextInput
+          style={{
+            width: Metrics.screenWidth - Metrics.doubleBaseMargin * 2,
+            height: 50,
+            marginBottom: Metrics.baseMargin,
+          }}
+          dense={true}
+          mode="outlined"
+          label="Ваш персональный ключ"
+          onChangeText={props.setLogin}
+        />
+        <TextInput
+          style={{
+            width: Metrics.screenWidth - Metrics.doubleBaseMargin * 2,
+            height: 50,
+            marginBottom: Metrics.doubleBaseMargin * 2,
+          }}
+          dense={true}
+          label="Пароль"
+          textContentType="password"
+          onChangeText={props.setPassword}
+          mode="outlined"
+          secureTextEntry={true}
+        />
+        <Button
+          loading={props.fetching}
+          onPress={props.logIn}
+          mode="contained"
+          icon="coffee"
+          style={{width: Metrics.screenWidth - Metrics.doubleBaseMargin * 2}}>
+          Далее
+        </Button>
+      </Container>
+      {Platform.OS === 'ios' ? <KeyboardSpacer topSpacing={-35} /> : null}
+    </Wrapper>
   );
 };
 
@@ -74,29 +82,26 @@ SignInScreen.navigationOptions = {
   headerMode: 'none',
 };
 
-const Wrapper = glamorous(SafeAreaView)({
-  flex: 1,
-  justifyContent: 'flex-end',
-});
+SignInScreen.propTypes = {
+  error: PropTypes.string.isRequired,
+  setLogin: PropTypes.func.isRequired,
+  setPassword: PropTypes.func.isRequired,
+  logIn: PropTypes.func.isRequired,
+};
 
 const Container = glamorous.view({
   alignItems: 'center',
-  backgroundColor: 'rgb(51, 51, 51)',
-  ...Metrics.customPaddings(50, 0, 50, 0),
-  ...Metrics.withBorderRadius(),
 });
 
-const Circle = glamorous.view({
-  width: 50,
-  height: 50,
-  backgroundColor: '#f44336',
-  justifyContent: 'center',
-  alignItems: 'center',
-  ...Metrics.withBorderRadius(null, 50),
+const Wrapper = glamorous(SafeAreaView)({
+  flex: 1,
+  justifyContent: 'space-around',
+  ...Metrics.customPaddings(50, 0, 50, 0),
 });
 
 const mapStateToProps = createStructuredSelector({
   error: AuthSelectors.selectAuthError,
+  fetching: AuthSelectors.selectAuthFetching,
 });
 
 const mapDispatchToProps = dispatch =>

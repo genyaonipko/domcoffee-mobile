@@ -7,22 +7,30 @@ export class CookieStorage {
 
   setCookie = async cookie => {
     this.cookie = cookie;
-    if (__DEV__) console.info('Storage.setCookie =>', cookie);
+    if (__DEV__) {
+      console.info('Storage.setCookie =>', cookie);
+    }
     await AsyncStorage.setItem(COOKIE_STORAGE_KEY, this.cookie);
     return true;
   };
 
   getCookie = async () => {
-    if (this.cookie) return this.cookie;
-    this.cookie = await AsyncStorage.getItem(COOKIE_STORAGE_KEY)
-    if (__DEV__) console.info('Storage.getCookie =>', this.cookie);
+    if (this.cookie) {
+      return this.cookie;
+    }
+    this.cookie = await AsyncStorage.getItem(COOKIE_STORAGE_KEY);
+    if (__DEV__) {
+      console.info('Storage.getCookie =>', this.cookie);
+    }
     return this.cookie;
   };
 
   clearCookie = async () => {
     this.cookies = null;
     await AsyncStorage.removeItem(COOKIE_STORAGE_KEY);
-    if (__DEV__) console.info('Storage.clearCookie');
+    if (__DEV__) {
+      console.info('Storage.clearCookie');
+    }
     return true;
   };
 }

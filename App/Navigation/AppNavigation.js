@@ -1,7 +1,10 @@
+import React from 'react';
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import SignInScreen from '../Containers/SignInScreen';
 import DashboardScreen from '../Containers/DashboardScreen';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import BottomNavigator from './BottomNavigator';
 
 const PrimaryNav = createSwitchNavigator(
   {
@@ -9,10 +12,10 @@ const PrimaryNav = createSwitchNavigator(
       screen: SignInScreen,
     },
     Dashboard: {
-      screen: DashboardScreen,
+      screen: BottomNavigator,
     },
   },
-  {headerMode: 'none', initialRouteName: 'SignIn'},
+  {initialRouteName: 'SignIn'},
 );
 
 const AppNavigator = createStackNavigator(
@@ -24,4 +27,4 @@ const AppNavigator = createStackNavigator(
   {headerMode: 'none'},
 );
 
-export default createAppContainer(AppNavigator);
+export default AppNavigator;

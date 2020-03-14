@@ -7,6 +7,7 @@ import {
   createNavigationReducer,
 } from 'react-navigation-redux-helpers';
 import AppNavigation from '../Navigation/AppNavigation';
+import PackReducer from './PackReducers/PackReducer';
 
 const navReducer = createNavigationReducer(AppNavigation);
 
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   nav: navReducer,
   auth: AuthReducer,
   bootstrap: BootstrapReducer,
+  pack: PackReducer,
 });
 
 const middleware = [thunk, navigationMiddleware];

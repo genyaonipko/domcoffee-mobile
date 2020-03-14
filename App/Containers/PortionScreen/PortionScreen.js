@@ -7,13 +7,13 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {logOut} from '../../Reducers/AuthReducers/AuthAsyncActions';
 
-const DashboardScreen = props => {
+const PackScreen = props => {
   return (
     <LinearGradient
-      start={{x: 0, y: 1}}
-      end={{x: 1, y: 0}}
+      start={{x: 0, y: 0}}
+      end={{x: 1, y: 1}}
       style={{flex: 1}}
-      colors={['rgb(73, 156, 234)', 'rgb(32, 227, 84)']}>
+      colors={['#ffffff', '#fadfbd']}>
       <Wrapper>
         <Container>
           <PieChart
@@ -96,4 +96,4 @@ const mapDispatchToProps = dispatch =>
 export default connect(
   null,
   mapDispatchToProps,
-)(DashboardScreen);
+)(PackScreen);

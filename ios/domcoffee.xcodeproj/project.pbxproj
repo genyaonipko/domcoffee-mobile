@@ -18,7 +18,8 @@
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2DCD954D1E0B4F2C00145EB5 /* domcoffeeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* domcoffeeTests.m */; };
 		5AFD77D42903200018718B18 /* libPods-domcoffee-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24CDA79450F9E0F9F3DEA95A /* libPods-domcoffee-tvOSTests.a */; };
-		D893897223A5309C00A3C18F /* domcoffee.png in Resources */ = {isa = PBXBuildFile; fileRef = D893897123A5309C00A3C18F /* domcoffee.png */; };
+		D8220405241CF0DC00EDCCF4 /* domcoffee.png in Resources */ = {isa = PBXBuildFile; fileRef = D8220404241CF0DB00EDCCF4 /* domcoffee.png */; };
+		D8976B5423F95A5A006FA417 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D8976B5323F95A5A006FA417 /* Settings.bundle */; };
 		DFF65B908FA992CD5D68374A /* libPods-domcoffee.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE007FFA32BE0EC0FB3B865 /* libPods-domcoffee.a */; };
 		E0AF31B46B401F947F7A16A0 /* libPods-domcoffeeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F70F2C5C5489AEE6862AC97A /* libPods-domcoffeeTests.a */; };
 /* End PBXBuildFile section */
@@ -47,7 +48,7 @@
 		00E356F21AD99517003FC87E /* domcoffeeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = domcoffeeTests.m; sourceTree = "<group>"; };
 		0FE007FFA32BE0EC0FB3B865 /* libPods-domcoffee.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-domcoffee.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		11BC6AF8699B4E618F180E68 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* domcoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = domcoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* ДК Кировоград.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ДК Кировоград.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = domcoffee/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = domcoffee/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -78,8 +79,9 @@
 		BE4DA2983899A43D857E462D /* Pods-domcoffeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-domcoffeeTests.release.xcconfig"; path = "Target Support Files/Pods-domcoffeeTests/Pods-domcoffeeTests.release.xcconfig"; sourceTree = "<group>"; };
 		C101E47C08141BA7E1270C64 /* Pods-domcoffee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-domcoffee.debug.xcconfig"; path = "Target Support Files/Pods-domcoffee/Pods-domcoffee.debug.xcconfig"; sourceTree = "<group>"; };
 		CDE64AD379FA425A992F42C7 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		D8220404241CF0DB00EDCCF4 /* domcoffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = domcoffee.png; path = ../../../../Desktop/domcoffee.png; sourceTree = "<group>"; };
 		D86613D7235630BD0065F4C8 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D893897123A5309C00A3C18F /* domcoffee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = domcoffee.png; path = ../../domcoffee/client/src/Resources/Images/domcoffee.png; sourceTree = "<group>"; };
+		D8976B5323F95A5A006FA417 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		DB8E957B14E40AA7E339EF10 /* Pods-domcoffeeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-domcoffeeTests.debug.xcconfig"; path = "Target Support Files/Pods-domcoffeeTests/Pods-domcoffeeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E3701B177F43CF9B46C13D45 /* Pods-domcoffee-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-domcoffee-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-domcoffee-tvOSTests/Pods-domcoffee-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -150,7 +152,7 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
-				D893897123A5309C00A3C18F /* domcoffee.png */,
+				D8220404241CF0DB00EDCCF4 /* domcoffee.png */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = domcoffee;
@@ -203,6 +205,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				D8976B5323F95A5A006FA417 /* Settings.bundle */,
 				13B07FAE1A68108700A75B9A /* domcoffee */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* domcoffeeTests */,
@@ -219,7 +222,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* domcoffee.app */,
+				13B07F961A680F5B00A75B9A /* ДК Кировоград.app */,
 				00E356EE1AD99517003FC87E /* domcoffeeTests.xctest */,
 				2D02E47B1E0B4A5D006451C7 /* domcoffee-tvOS.app */,
 				2D02E4901E0B4A5D006451C7 /* domcoffee-tvOSTests.xctest */,
@@ -282,7 +285,7 @@
 			);
 			name = domcoffee;
 			productName = domcoffee;
-			productReference = 13B07F961A680F5B00A75B9A /* domcoffee.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* ДК Кировоград.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2D02E47A1E0B4A5D006451C7 /* domcoffee-tvOS */ = {
@@ -386,9 +389,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8976B5423F95A5A006FA417 /* Settings.bundle in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				D893897223A5309C00A3C18F /* domcoffee.png in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				D8220405241CF0DC00EDCCF4 /* domcoffee.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,7 +701,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/domcoffee.app/domcoffee";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ДК Кировоград.app/ДК Кировоград";
 			};
 			name = Debug;
 		};
@@ -718,7 +722,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/domcoffee.app/domcoffee";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ДК Кировоград.app/ДК Кировоград";
 			};
 			name = Release;
 		};
@@ -738,7 +742,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.developer.onipko;
-				PRODUCT_NAME = domcoffee;
+				PRODUCT_NAME = "ДК Кировоград";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -759,7 +763,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.developer.onipko;
-				PRODUCT_NAME = domcoffee;
+				PRODUCT_NAME = "ДК Кировоград";
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
 			};

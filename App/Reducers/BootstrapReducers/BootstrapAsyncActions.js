@@ -21,7 +21,9 @@ const optionalConfigObject = {
 
 export const bootstrap = () => async (dispatch, getState) => {
   try {
+    await RNSplashScreen.hide();
     dispatch(BootstrapActions.bootstrap());
+    dispatch(BootstrapActions.bootstrapSuccess());
     const cookie = await CookieStorage.getCookie();
     if (cookie) {
       const user = jwtDecode(cookie);
@@ -43,10 +45,12 @@ export const bootstrap = () => async (dispatch, getState) => {
         }
       }
     }
-    dispatch(BootstrapActions.bootstrapSuccess());
   } catch (e) {
     dispatch(BootstrapActions.bootstrapFailure());
-  } finally {
-    RNSplashScreen.hide();
+    dispatch(
+      logOut({
+        errorMessage: 'Сессия устарела, зайдите в приложение заново',
+      }),
+    );
   }
 };

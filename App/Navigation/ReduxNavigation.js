@@ -4,16 +4,12 @@ import {connect} from 'react-redux';
 import AppNavigation from './AppNavigation';
 import {bootstrap} from '../Reducers/BootstrapReducers/BootstrapAsyncActions';
 import {bindActionCreators} from 'redux';
-import RNSplashScreen from 'react-native-splash-screen';
-
 
 const App = createReduxContainer(AppNavigation);
 
 class ReduxNavigation extends React.PureComponent {
-
   componentDidMount() {
     this.props.bootstrap();
-    // RNSplashScreen.hide()
   }
 
   render() {

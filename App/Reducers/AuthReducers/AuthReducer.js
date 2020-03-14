@@ -40,6 +40,22 @@ const selectAuthError = createSelector(
   selectAuth,
   auth => auth.error,
 );
+const selectUser = createSelector(
+  selectAuth,
+  state => state.user,
+);
+const selectUserName = createSelector(
+  selectUser,
+  user => user.name,
+);
+const selectUserFirstLetters = createSelector(
+  selectUserName,
+  name => {
+    if (!name) return '';
+    const userArr = name.split(' ');
+    return userArr.reduce((acc, current) => current.charAt(0) + acc, '');
+  },
+);
 const selectAuthFetching = createSelector(
   selectAuth,
   auth => auth.fetching,
@@ -49,6 +65,9 @@ export const AuthSelectors = {
   selectAuth,
   selectAuthError,
   selectAuthFetching,
+  selectUserFirstLetters,
+  selectUser,
+  selectUserName,
 };
 
 /* ------------- Hookup Reducers To Types ------------- */
@@ -92,6 +111,6 @@ export const HANDLERS = {
   [ActionTypes.LOGIN_FAILURE]: loginFailure,
   [ActionTypes.SET_PASSWORD]: setPassword,
   [ActionTypes.SET_LOGIN]: setLogin,
-}
+};
 
 export default createReducer(INITIAL_STATE, HANDLERS);

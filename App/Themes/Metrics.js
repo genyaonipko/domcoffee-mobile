@@ -1,3 +1,5 @@
+import {Dimensions} from 'react-native';
+
 const withBorderRadius = (position, radius = metrics.baseRadius) => {
   switch (position) {
     case 'bottom':
@@ -16,6 +18,8 @@ const withBorderRadius = (position, radius = metrics.baseRadius) => {
       };
   }
 };
+
+const { width, height } = Dimensions.get('screen');
 
 const customPaddings = (top, right, bottom, left) => {
   return {
@@ -36,6 +40,8 @@ const customMargins = (top, right, bottom, left) => {
 };
 
 const metrics = {
+  screenWidth: width,
+  screenHeight: height,
   baseMargin: 10,
   doubleBaseMargin: 20,
   baseRadius: 10,

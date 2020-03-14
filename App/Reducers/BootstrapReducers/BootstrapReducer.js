@@ -55,6 +55,6 @@ export const HANDLERS = {
   [ActionTypes.BOOTSTRAP]: bootstrap,
   [ActionTypes.BOOTSTRAP_SUCCESS]: bootstrapSuccess,
   [ActionTypes.BOOTSTRAP_FAILURE]: bootstrapFailure,
-}
+};
 
 export default createReducer(INITIAL_STATE, HANDLERS);
